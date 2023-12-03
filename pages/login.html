@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="https://cdn.tailwindcss.com"></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js"
+      integrity="sha512-b94Z6431JyXY14iSXwgzeZurHHRNkLt9d6bAHt7BZT38eqV+GyngIi/tVye4jBKPYQ2lBdRs0glww4fmpuLRwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script defer src="/js/login.js"></script>
+    <script>
+      let userId = localStorage.getItem("user-id");
+      if (userId) window.location.replace("/");
+    </script>
+    <link rel="stylesheet" href="/styles/css/minified/login.min.css" />
+    <title>Telegram | Login</title>
+  </head>
+  <body class="h-screen grid place-items-center bg-blue-200">
+    <div class="alerts fixed top-4 end-4 grid gap-2"></div>
+    <div class="w-[500px] bg-gray-300 rounded-lg p-8">
+      <h1 class="text-4xl text-blue-600 text-center">Login</h1>
+
+      <form class="mt-8">
+        <label for="phone" class="block my-6">
+          Your Phone Number:
+          <input type="tel" id="phone" class="px-4 py-2 w-full mt-2 rounded" />
+        </label>
+        <label for="password" class="block my-6">
+          Your Password:
+          <input
+            type="password"
+            id="password"
+            class="px-4 py-2 w-full mt-2 rounded"
+          />
+        </label>
+
+        <button type="submit" class="bg-blue-600 block w-full py-2 text-white">
+          Sign in
+        </button>
+
+        <p class="mt-2">
+          No account yet?
+          <a href="/pages/register.html" class="text-blue-600">Register now.</a>
+        </p>
+      </form>
+    </div>
+  </body>
+</html>

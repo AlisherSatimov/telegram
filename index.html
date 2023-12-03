@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      let userId = localStorage.getItem("user-id");
+      if (!userId) window.location.replace("/pages/login.html");
+    </script>
+    <script defer src="https://cdn.tailwindcss.com"></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js"
+      integrity="sha512-b94Z6431JyXY14iSXwgzeZurHHRNkLt9d6bAHt7BZT38eqV+GyngIi/tVye4jBKPYQ2lBdRs0glww4fmpuLRwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script defer src="/js/app.js"></script>
+    <link rel="stylesheet" href="styles/css/minified/home.min.css" />
+    <title>Telegram | Chat list</title>
+  </head>
+  <body class="bg-blue-200">
+    <div class="alerts fixed top-20 end-4 grid gap-2"></div>
+    <header class="bg-blue-600 text-white">
+      <div class="flex items-center justify-between py-2 container mx-auto">
+        <div>
+          <h2 id="fullName" class="text-xl"></h2>
+          <p id="phoneNumber"></p>
+        </div>
+        <input id="searchInput" type="search" placeholder="Search by Phone Number or Full name" class="py-2 px-4 rounded-lg w-1/2 text-black" />
+        <button
+          id="logoutBtn"
+          class="bg-rose-200 border border-rose-900 text-rose-900 rounded-lg px-8 py-2"
+        >
+          Log out
+        </button>
+      </div>
+    </header>
+    <main class="container mx-auto my-4 p-4 bg-white"></main>
+  </body>
+</html>

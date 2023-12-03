@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      let myId = localStorage.getItem("user-id");
+      if (!myId) window.location.replace("/pages/login.html");
+
+      let params = new URLSearchParams(window.location.search);
+      let friendId = params.get("userId");
+      let chatId = params.get("chatId");
+
+      if (!friendId && !chatId) window.location.replace("/");
+    </script>
+    <script defer src="https://cdn.tailwindcss.com"></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js"
+      integrity="sha512-b94Z6431JyXY14iSXwgzeZurHHRNkLt9d6bAHt7BZT38eqV+GyngIi/tVye4jBKPYQ2lBdRs0glww4fmpuLRwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script defer src="/js/chat.js"></script>
+    <link rel="stylesheet" href="/styles/css/minified/chat.min.css" />
+    <title>Telegram | Chat list</title>
+  </head>
+  <body class="bg-blue-200 flex flex-col h-screen">
+    <div class="alerts fixed top-20 end-4 grid gap-2"></div>
+    <header class="bg-blue-600 text-white">
+      <div class="flex items-center justify-between py-2 container mx-auto">
+        <div class="flex items-center gap-2">
+          <a
+            href="/"
+            class="hover:bg-blue-200 bg-blue-500 border border-transparent hover:border-blue-900 hover:text-blue-900 rounded-lg p-2 w-12 h-12 flex items-center justify-center"
+          >
+            <
+          </a>
+          <div
+            id="avatar"
+            class="w-16 h-16 bg-rose-200 rounded-full grid place-items-center text-rose-900 text-2xl"
+          ></div>
+          <div>
+            <h2 id="fullName" class="text-xl"></h2>
+            <p id="phoneNumber"></p>
+          </div>
+        </div>
+        <input
+          id="searchInput"
+          type="search"
+          placeholder="Search message"
+          class="py-2 px-4 rounded-lg w-1/2 text-black"
+        />
+      </div>
+    </header>
+    <main class="flex-1 overflow-hidden py-2">
+      <div class="container mx-auto h-full overflow-auto grid">
+        <div class="messages grid gap-2 mt-auto"></div>
+      </div>
+    </main>
+    <footer>
+      <div class="container mx-auto">
+        <form action="" class="flex">
+          <textarea
+            name=""
+            id=""
+            class="w-full p-2"
+            placeholder="Write a message..."
+            rows="2"
+          ></textarea>
+          <button
+            class="bg-blue-600 border-blue-900 border w-16 h-16 flex items-center justify-center"
+          >
+            <img
+              class="w-12 h-12"
+              src="/images/icons/location-arrow-solid.svg"
+              alt=""
+            />
+          </button>
+        </form>
+      </div>
+    </footer>
+  </body>
+</html>
